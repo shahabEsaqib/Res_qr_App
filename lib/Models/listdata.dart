@@ -326,7 +326,6 @@ List<CatogryModel> cpr =[
     yes1: 'assets/sounds/CU1.0.mp3',
     yes1Des: '''Tap the victim's shoulder or shout 'Are you okay?' CPR should only be performed if the victim is unconscious OR not breathing. If this does not describe the victim, press the button that most closely fits the emergency.  ''',
     no1: 'assets/sounds/BC8.2.mp3',
-    
     no1Des: 'Is this a poison or suspected drug overdose emergency?',
     
     yes2: 'assets/sounds/BC8.2.mp3',
