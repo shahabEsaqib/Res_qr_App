@@ -1,8 +1,9 @@
 
 import 'package:flutter/material.dart';
-import 'package:res_qr_flutter/cpr.dart';
-import 'package:res_qr_flutter/info.dart';
-import 'package:res_qr_flutter/informationScreen.dart';
+import 'package:res_qr_flutter/bottomNav/info.dart';
+import 'package:res_qr_flutter/bottomNav/informationScreen.dart';
+
+import 'cpr.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({ Key? key }) : super(key: key);

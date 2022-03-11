@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:res_qr_flutter/Models/listdata.dart';
-import 'package:res_qr_flutter/catogoryScreen.dart';
+import 'package:res_qr_flutter/bottomNav/cat/catogoryScreen.dart';
 
 class InformationScreen extends StatefulWidget {
   const InformationScreen({Key? key}) : super(key: key);

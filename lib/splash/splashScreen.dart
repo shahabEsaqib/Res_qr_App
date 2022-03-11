@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:res_qr_flutter/homeScreen.dart';
+import 'package:res_qr_flutter/bottomNav/homeScreen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({ Key? key }) : super(key: key);

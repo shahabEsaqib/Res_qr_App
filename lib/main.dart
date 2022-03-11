@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:res_qr_flutter/splashScreen.dart';
+import 'package:res_qr_flutter/splash/splashScreen.dart';
 import 'package:sizer/sizer.dart';
 
 void main() {
