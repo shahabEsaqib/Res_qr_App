@@ -292,7 +292,7 @@ bool isButtonEnabled = false;
     ..addListener(() {setState(() {});})
     ..setLooping(false)..initialize().then((value) => controller!.pause());
 
-    assigningYesNo();
+    //assigningYesNo();
     super.initState();
   }
 List<YesNoModel> yndata=[];
@@ -625,62 +625,74 @@ List<YesNoModel> yndata=[];
   }
 
   checkYesNoAvail(){
-    setState(() {
-        yes1Dis = category[catindex].yes1Des.toString();
-                yes2Dis = category[catindex].yes2Des.toString();
-                yes3Dis = category[catindex].yes3Des.toString();
+    if (category[catindex].yes1Des!.isNotEmpty) {
+      yes1Dis = category[catindex].yes1Des.toString();
+      yes2Dis = category[catindex].yes2Des.toString();
+      yes3Dis = category[catindex].yes3Des.toString();
       /*yes1Dis = yndata[0].yes;no1Dis = yndata[0].no;
       yes2Dis = yndata[1].yes;no2Dis = yndata[1].no;
       yes3Dis = yndata[2].yes;no3Dis = yndata[2].no;
       */
-        print(" yes 1 $yes1Dis");print(" yes 2 $yes2Dis");print(" yes 3 $yes3Dis");
+      print(" yes 1 $yes1Dis");
+      print(" yes 2 $yes2Dis");
+      print(" yes 3 $yes3Dis");
+      if (yes1Dis!.isNotEmpty) {
+        print("yesno is not empty");
+        setState(() {
+          isButtonEnabled = true;
+        });
+      }
 
+      else if (((yes1Dis!.isNotEmpty) || (yes2Dis!.isNotEmpty)) &&
+          (IncrementYesNO == 1)) {
+        setState(() {
+          isButtonEnabled = true;
+        });
+      }
+      else if (((yes1Dis!.isNotEmpty) || (yes2Dis!.isNotEmpty) ||
+          (yes3Dis!.isNotEmpty)) && (IncrementYesNO == 2)) {
+        setState(() {
+          isButtonEnabled = true;
+        });
+      }
+      // else if(IncrementYesNO==3 || IncrementYesNO == 2 || IncrementYesNO == 1 || IncrementYesNO == 0){
+      //    setState(() {
+      //      isButtonEnabled = false;
+      //     });
+      //  }
+      else
+        isButtonEnabled = false;
+    }
+    else{
+    setState(() {
+  isButtonEnabled = false;
     });
-    if(yes1Dis!.isNotEmpty){
-      print("yesno is not empty");
-      setState(() {
-        isButtonEnabled=true;
-      });
-    }
-
-    else if(((yes1Dis!.isNotEmpty)||(yes2Dis!.isNotEmpty))&& (IncrementYesNO ==1)){
-      setState(() {
-        isButtonEnabled=true;
-      });
-    }
-    else if(((yes1Dis!.isNotEmpty)||(yes2Dis!.isNotEmpty)||(yes3Dis!.isNotEmpty)) &&(IncrementYesNO==2 )){
-      setState(() {
-        isButtonEnabled = true;
-      });
-
-    }
-    // else if(IncrementYesNO==3 || IncrementYesNO == 2 || IncrementYesNO == 1 || IncrementYesNO == 0){
-    //    setState(() {
-    //      isButtonEnabled = false;
-    //     });
-    //  }
-    else isButtonEnabled =false;
-
-
-    //return isButtonEnabled;
+  }
   }
 
   assigningYesNo(){
     setState(() {
       //assign yes data
-      yes1Dis = category[catindex].yes1Des.toString();
-      yes2Dis = category[catindex].yes2Des.toString();
-      yes3Dis = category[catindex].yes3Des.toString();
+      if (category[catindex].yes1Des!.isNotEmpty) {
+        yes1Dis = category[catindex].yes1Des.toString();
+        yes2Dis = category[catindex].yes2Des.toString();
+        yes3Dis = category[catindex].yes3Des.toString();
 
-      //assign no data
-      no1Dis = category[catindex].no1Des.toString();
-      no2Dis = category[catindex].no2Des.toString();
-      no3Dis = category[catindex].no3Des.toString();
+        //assign no data
+        no1Dis = category[catindex].no1Des.toString();
+        no2Dis = category[catindex].no2Des.toString();
+        no3Dis = category[catindex].no3Des.toString();
 
-      //add yes no to a list
-      yndata.add(YesNoModel(yes: yes1Dis,no: no1Dis));
-      yndata.add(YesNoModel(yes: yes2Dis,no: no2Dis));
-      yndata.add(YesNoModel(yes: yes3Dis,no: no3Dis));
+        //add yes no to a list
+        yndata.add(YesNoModel(yes: yes1Dis, no: no1Dis));
+        yndata.add(YesNoModel(yes: yes2Dis, no: no2Dis));
+        yndata.add(YesNoModel(yes: yes3Dis, no: no3Dis));
+      }
+      else{
+        setState(() {
+          isButtonEnabled = false;
+        });
+      }
     });
   }
   yesNoButton(){
