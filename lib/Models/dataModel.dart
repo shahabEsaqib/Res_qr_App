@@ -3,6 +3,7 @@ class DataModel{
   String? title;
   String? image;
   String? audio;
+  String? video;
 
-  DataModel({this.id, this.title, this.image,this.audio});
+  DataModel({this.id, this.title, this.image,this.audio, this.video});
 }

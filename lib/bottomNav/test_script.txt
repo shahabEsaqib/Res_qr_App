@@ -1,0 +1,274 @@
+<!-- FirstVoice Script XML 3.0.1 iphone version; 1.7.22 new updated .xml to accomodate testing and new app build -->
+<fvs>
+  <!-- 1 MI = Multiple Injury -->
+  <section id="MI" order="1" text="Multiple Injury">
+    <step id="MI.0">
+      <action id="MI1.0" order="1">
+        <media>MI1.0.mp3</media>
+        <text><![CDATA[This button will help you assess a victim with multiple or unknown injuries and prioritize treatment.  
+(Press NEXT to continue.)]]></text>
+      </action>
+      <action id="MI1.1" order="2">
+        <media>MI1.1.mp3</media>
+        <text><![CDATA[First, check to be certain the scene is safe and visually assess the area for any clues about the emergency.  
+(Press NEXT to continue.)]]></text>
+      </action>
+      <action id="G4.7" order="3">
+        <media>G4.7.mp3</media>
+        <text><![CDATA[Grab available first aid supplies and put on protective items such as safety gloves. Identify yourself and ask the victim for permission to provide care. If permission is refused, DO NOT proceed. Call 911 or your designated emergency number.  
+(Press NEXT to continue.)]]></text>
+      </action>
+      <action id="MI2.0" order="4">
+        <media>MI2.0.mp3</media>
+        <text><![CDATA[Do not move the victim unless absolutely necessary for safety reasons. If you must move someone with possible head/neck/spine injury, two rescuers can more safely do this. Support the head and neck in the position found, while carefully rolling the victim onto his back and gently pulling him by his clothing or upper chest.  
+(Press VIEW to see short video on how to move a victim with suspected head, neck or spinal injuries.)
+(Press NEXT to continue.)]]></text>
+        <prompt yes="" no="" view="12-a.mp4" />
+      </action>
+      <action id="HN2.0" order="5">
+        <media>HN2.0.mp3</media>
+        <text><![CDATA[If victim is wearing a helmet, DO NOT remove it unless necessary to assess airway and you are trained to do so.  
+(Press NEXT to continue.)]]></text>
+      </action>
+    <step id="MI.95">
+      <action id="G11.0" order="1">
+        <media>G11.0.mp3</media>
+        <text><![CDATA[If the victim appears stable, press the Info button for a list of key questions to ask and document for hand off to EMTs when they arrive.  Gather whatever information you can from the victim, family members, or other bystanders until advanced care arrives. 
+(Press NEXT to continue.)]]></text>
+      </action>
+      <action id="G6.0" order="2">
+        <media>G6.0.mp3</media>
+        <text><![CDATA[Continually monitor the victim.  If at any time the victim loses consciousness or stops breathing, press the CPR button.  If the victim's airway becomes obstructed or breathing constricted, press the Home icon and proceed with Breathing/Choking button. Forward past instructions already reviewed. 
+(Press NEXT to continue.)]]></text>
+      </action>
+      <action id="BS9.0" order="3">
+        <media>BS9.0.mp3</media>
+        <text><![CDATA[As soon as possible after the victim is treated and stabilized clean up any blood or body fluids left in the area using safety gloves. If a Bloodborne Pathogens Cleanup Kit is available, follow the instructions for use. When finished, wash hands. 
+(Press VIEW to see short video on how to clean up using proper BBP hazard precautions.)
+(Press NEXT to continue.)]]></text>
+<prompt yes="" no="" view="1-a.mp4" />
+      </action>
+      <action id="MI9.0" order="4">
+        <media>MI9.0.mp3</media>
+        <text><![CDATA[Press the Back or Next buttons to repeat any instructions or press the Start Over button to begin these instructions again.  
+(END.)]]></text>
+      </action>
+    </step>
+  </section>
+  <!-- 2 HN = Head Neck & Spine Protocols-->
+  <section id="HN" order="2" text="Head/Neck/Spine Protocols">
+    <step id="HN.0">
+      <action id="G1.0" order="1">
+        <media>G1.0.mp3</media>
+        <text><![CDATA[Is the victim conscious and breathing?]]></text>
+        <prompt yes="HN.1" no="CUL.0" view="" />
+      </action>
+    </step>
+    <step id="HN.1">
+      <action id="G3.4.7" order="1">
+       <media>G3.4.7.mp3</media>
+        <text><![CDATA[If 911 has not been called, have someone call this or your designated emergency number. Grab available first aid supplies and put on protective items such as safety gloves.  Identify yourself and ask the victim for permission to provide care. If permission is refused, DO NOT proceed.  
+(Press NEXT to continue.)]]></text>
+      </action>
+      <action id="HN1.0" order="2">
+        <media>HN1.0.mp3</media>
+        <text><![CDATA[Keep the victim as still as possible. Check the scene. Do not move the victim unless absolutely necessary for safety reasons. If you must move someone with possible head/neck/spine injury, two rescuers can more safely do this. Support the head/neck in the position found, while carefully rolling the victim onto his back and gently pulling him by his clothing or upper chest.  
+(Press VIEW to see how to move a victim with suspected head, neck or spinal injuries.)
+(Press NEXT to continue.)]]></text>
+        <prompt yes="" no="" view="12-a.mp4" />
+      </action>
+      <action id="BS9.0" order="3">
+        <media>BS9.0.mp3</media>
+        <text><![CDATA[As soon as possible after the victim is treated and stabilized clean up any blood or body fluids left in the area using safety gloves. If a Bloodborne Pathogens Cleanup Kit is available, follow the instructions for use. When finished, wash hands. 
+(Press VIEW to see short video on how to clean up using proper BBP hazard precautions.)
+(Press NEXT to continue.)]]></text>
+<prompt yes="" no="" view="1-a.mp4" />
+      </action>
+      <action id="HN5.0" order="4">
+        <media>HN5.0.mp3</media>
+        <text><![CDATA[Press the Back or Next buttons to repeat any instructions or press the Start Over button to begin these instructions again. 
+        END]]></text>
+      </action>
+    </step>
+  </section>
+  <section id="CUL" order="3" text="CPR/Unconscious">
+<step id="CUL.0">
+      <action id="CU1.0" order="1">
+        <media>CU1.0.mp3</media>
+        <text><![CDATA[Tap the victim's shoulder or shout 'Are you okay?' CPR should only be performed if the victim is unconscious OR not breathing. If this does not describe the victim, press the button that most closely fits the emergency.  
+(Press VIEW to see short video on how to perform Adult CPR.)
+(Press NEXT to continue and obtain more instructions for Adult, Child and Infant CPR.) ]]></text>
+<prompt yes="" no="" view="1-a.mp4" />
+      </action>
+      <action id="C2.0" order="2">
+        <media>C2.0.mp3</media>
+        <text><![CDATA[Is the victim age 8 or over?]]></text>
+        <prompt yes="CUL.0" no="BC.0" view="" />
+      </action>
+    </step> 
+  </section>
+  <section id="BC" order="4" text="BREATHING/CHOKING">
+    <!--  comment  -->
+    <step id="BC.0">
+      <action id="BC8.1" order="1">
+        <media>BC8.2.mp3</media>
+        <text><![CDATA[Is this a poison or suspected drug overdose emergency?]]></text>
+      <prompt yes="BC.1" no="BC.12" view="" />
+	</action>
+	</step>
+	<step id="BC.1">
+      <action id="BC8.2" order="1">
+        <media>BC8.2.mp3</media>
+        <text><![CDATA[Has the person collapsed?]]></text>
+      <prompt yes="BC.12" no="BC.0" view="" />
+      </action>
+      </step>
+    <step id="BC.12">
+      <action id="BC2.1.6" order="1">
+        <media>BC2.1.6.mp3</media>
+        <text><![CDATA[Place victim in the recovery position, lying on his side. 
+(Press VIEW to see short video on how to roll victim to the recovery position.)
+(Press NEXT to continue.)]]></text>
+        <prompt yes="" no="" view="1-a.mp4" />
+      </action>
+         <action id="BC2.1.7" order="2">
+        <media>BC2.1.7.mp3</media>
+        <text><![CDATA[Press the arrow keys to repeat any instructions or press the Start Over button to begin these instructions again.   
+(END.)]]></text>
+      </action>
+    </step>
+    </section>
+  <section id="HC" order="5" text="Heart/Chest Pain/Stroke">
+    <!-- Comment  Edited by PMW  -->
+    <step id="HC.0">
+      <action id="G1.0" order="1">
+        <media>G1.0.mp3</media>
+        <text><![CDATA[Is the victim conscious and breathing?]]></text>
+        <prompt yes="HC.1" no="CUL.0" view="" />
+      </action>
+    </step>
+    <step id="HC.1">
+      <action id="G3.4.7" order="1">
+        <media>G3.4.7.mp3</media>
+        <text><![CDATA[If 911 has not been called, have someone call this or your designated emergency number. Grab available first aid supplies and put on protective items such as safety gloves.  Identify yourself and ask the victim for permission to provide care. If permission is refused, DO NOT proceed.  
+(Press NEXT to continue.)]]></text>
+      </action>
+      <action id="HC1.5" order="3">
+        <media>HC1.5.mp3</media>
+        <text><![CDATA[Press the Back or Next buttons to repeat any instructions as necessary or press the Start Over button to begin these instructions again.
+(END.)]]></text>
+      </action>
+    </step>
+  </section>
+  <section id="BS" order="6" text="Bleeding/Childbirth/Shock">
+    <!-- Comment - reviewed by PMW -->
+    <step id="BS.0">
+      <action id="G1.0" order="1">
+        <media>G1.0.mp3</media>
+        <text><![CDATA[Is the victim conscious and breathing?]]></text>
+        <prompt yes="BS.1" no="CUL.0" view="" />
+      </action>
+    </step>
+    <step id="BS.1">
+      <action id="BS1.0" order="1">
+        <media>BS1.0.mp3</media>
+        <text><![CDATA[Is the victim bleeding?]]></text>
+        <prompt yes="BS.32" no="BS.32" view="" />
+      </action>
+    <step id="BS.32">
+      <action id="BS10.6" order="1">
+        <media>BS10.6.mp3</media>
+        <text><![CDATA[Press the arrow keys to repeat any instructions or press the Start Over button to begin these instructions again.  
+(END.)]]></text>
+      </action>
+    </step>
+  </section>
+  <section id="BU" order="7" text="Burn">
+    <step id="BU.0">
+      <action id="BU1.0" order="1">
+        <media>G1.0.mp3</media>
+        <text><![CDATA[Is the victim conscious and breathing?]]></text>
+        <prompt yes="BU.1" no="CUL.0" view="" />
+      </action>
+    </step>
+    <step id="BU.1">
+      <action id="BU3.5" order="1">
+        <media>BU3.5.mp3</media>
+        <text><![CDATA[Press Back or Next buttons to repeat any instructions or press the Start Over button to begin these instructions again.  
+(END.)]]></text>
+      </action>
+    </step>
+  </section>
+  <section id="BO" order="8" text="Bone/Sprain">
+       <action id="G1.0" order="1">
+        <media>G1.0.mp3</media>
+        <text><![CDATA[Is the victim conscious and breathing?]]></text>
+        <prompt yes="BO.1" no="CUL.0" view="" />
+      </action>
+    </step>
+    <step id="BO.1">
+      <action id="BO5.3" order="1">
+        <media>BO5.3.mp3</media>
+        <text><![CDATA[Press the Back or Next buttons to repeat any instructions or press the Start Over button to begin these instructions again.  
+(END.)]]></text>
+      </action>
+    </step>
+  </section>
+  <section id="EY" order="9" text="EYE">
+      <action id="G1.0" order="1">
+        <media>G1.0.mp3</media>
+        <text><![CDATA[Is the victim conscious and breathing?]]></text>
+        <prompt yes="EY.1" no="CUL.0" view="" />
+      </action>
+    </step>
+    <step id="EY.1">
+      <action id="EY6.0" order="1">
+        <media>EY6.0.mp3</media>
+            <text><![CDATA[Press Back or Next buttons to repeat any instructions or press the Start Over button to begin these instructions again.  
+(END.)]]></text>
+      </action>
+    </step>
+  </section>
+    <section id="SE" order="10" text="Seizure/Diabetic">
+      <action id="SE7.0" order="8">
+        <media>SE7.0.mp3</media>
+                <text><![CDATA[Press Back or Next buttons to repeat any instructions or press the Start Over button to begin these instructions again.
+    (END.)]]></text>
+      </action>
+    </step>
+  </section>
+  <section id="HO" order="11" text="Heat/Cold/Over Exertion">
+    <!-- Comments -  -->
+    <step id="HO.0">
+      <action id="G1.0" order="1">
+        <media>G1.0.mp3</media>
+        <text><![CDATA[Is the victim conscious and breathing?]]></text>
+        <prompt yes="HO.1" no="CUL.0" view="" />
+      </action>
+    </step>
+    <step id="HO.1">
+      <action id="HO11.1.3" order="1">
+        <media>HO11.1.3.mp3</media>
+        <text><![CDATA[Keep victim comfortable and seek appropriate medical care. Press the Back or Next buttons to repeat any instructions or press the Start Over button to begin these instructions again. 
+(END.)]]></text>
+      </action>
+    </step>
+  </section>
+  <section id="PH" order="12" text="Other">
+    <!-- Comments -->
+    <step id="PH.0">
+      <action id="G1.0" order="1">
+        <media>G1.0.mp3</media>
+        <text><![CDATA[Is the victim conscious and breathing?]]></text>
+        <prompt yes="PH.1" no="CUL.0" view="" />
+      </action>
+    </step>
+    <step id="PH.1">
+     <action id="PH4.0" order="9">
+        <media>PH4.0.mp3</media>
+        <text><![CDATA[Press the Back or Next buttons to repeat any instructions or press the Start Over button to begin these instructions again.   
+(END.)]]></text>
+      </action>
+    </step>
+  </section>
+</fvs>

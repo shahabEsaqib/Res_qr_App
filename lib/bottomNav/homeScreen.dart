@@ -1,9 +1,12 @@
 
 import 'package:flutter/material.dart';
+import 'package:res_qr_flutter/bottomNav/cpr.dart';
 import 'package:res_qr_flutter/bottomNav/info.dart';
 import 'package:res_qr_flutter/bottomNav/informationScreen.dart';
 
-import 'cpr.dart';
+import '../Models/listdata.dart';
+
+// import 'cpr.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({ Key? key }) : super(key: key);
@@ -35,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
           controller: _pageController,
           children: [
             InformationScreen(),
-            CprScreen(),
+            CprScreen(data: Listdata().data,),
             InfoScreen()
           ]
         ),

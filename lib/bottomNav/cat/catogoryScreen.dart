@@ -5,6 +5,7 @@ import 'package:res_qr_flutter/Models/catogryModel.dart';
 import 'package:res_qr_flutter/Models/listdata.dart';
 import 'package:res_qr_flutter/Models/yesnoModel.dart';
 import 'package:res_qr_flutter/bottomNav/homeScreen.dart';
+import 'package:res_qr_flutter/bottomNav/cat/video/videoplayer.dart';
 import 'package:sizer/sizer.dart';
 import 'package:video_player/video_player.dart';
 
@@ -38,12 +39,11 @@ class _CatogoryScreenState extends State<CatogoryScreen> with TickerProviderStat
   
 
 int? index;
-bool yes = false;
-bool no = false;
+bool boolYes = false;
+bool boolNo = false;
 int yess = 1;
-int noo = 1;
-String? yes123 ;
-String? noo123;
+String? yesAudio123;
+String? nooAudio123;
 int IncrementYesNO = 0;
 String? yes1Dis = '';
 String? yes2Dis = '';
@@ -51,9 +51,11 @@ String? yes3Dis = '';
 String? no1Dis = '';
 String? no2Dis = '';
 String? no3Dis = '';
+String? video = '';
 
 
 bool isButtonEnabled = false;
+bool isVideo = false;
     
 
 
@@ -92,8 +94,8 @@ bool isButtonEnabled = false;
     setState(() {
         player.stop();
         IncrementYesNO = 0;
-        yes = false;
-        no = false;
+        boolYes = false;
+        boolNo = false;
         yess = 1;
         print('incrementtttttttt $IncrementYesNO');
           });
@@ -108,8 +110,8 @@ bool isButtonEnabled = false;
           iconcontroller.reverse();
           player.stop();
           catindex = 0;
-          yes = false;
-          no = false;
+          boolYes = false;
+          boolNo = false;
           IncrementYesNO = 0;
           yess = 1;
           // isButtonEnabled = false;
@@ -119,8 +121,8 @@ bool isButtonEnabled = false;
           iconcontroller.reverse();
           player.stop();
           catindex = 0;
-          yes = false;
-          no =false;
+          boolYes = false;
+          boolNo =false;
           yess = 1;
           IncrementYesNO = 0;
           // isButtonEnabled = false;
@@ -136,15 +138,23 @@ bool isButtonEnabled = false;
           iconcontroller.reverse();
           player.stop();
           catindex = catindex - 1;
-          IncrementYesNO = 0;
+           setState(() {
+            IncrementYesNO = 0;
+          });
+          yess = 1;
           player.open(Audio(category[catindex].audio.toString(),),autoStart: false,showNotification: false);
         }else{
           iconcontroller.reverse();
           player.stop();
           catindex = catindex - 1;
-          IncrementYesNO = 0;
+           setState(() {
+            IncrementYesNO = 0;
+          });
+          yess = 1;
           player.open(Audio(category[catindex].audio.toString(),),autoStart: false,showNotification: false);
         }
+        // checkYesNoAvail();
+        checkVideoAvail();
       });
    }
    void nextButton(){
@@ -153,33 +163,41 @@ bool isButtonEnabled = false;
           iconcontroller.reverse();
           player.stop();
           catindex = catindex + 1;
-          IncrementYesNO = 0;
+           setState(() {
+            IncrementYesNO = 0;
+          });
+          print('next button yes/no increment  $IncrementYesNO');
           player.open(Audio(category[catindex].audio.toString(),),autoStart: false,showNotification: false);
         }else{
           iconcontroller.reverse();
           player.stop();
           catindex = catindex + 1;
-          IncrementYesNO = 0;
+          setState(() {
+            IncrementYesNO = 0;
+          });
+          
+          print(' next button yes/no else increment  $IncrementYesNO');
           player.open(Audio(category[catindex].audio.toString(),),autoStart: false,showNotification: false);
         }
-        checkYesNoAvail();
+        // checkYesNoAvail();
+        checkVideoAvail();
       });
    }
    void yesButton(){
       setState(() {
                              
-        });
+          // checkYesNoAvail();
           yess==1?
-          yes123 = category[catindex].yes1:
-          yess == 2? yes123 = category[catindex].yes2: 
-          yes123 = category[catindex].yes3;
+          yesAudio123 = category[catindex].yes1:
+          yess == 2? yesAudio123 = category[catindex].yes2: 
+          yesAudio123 = category[catindex].yes3;
           
           if(isAnimated){
             iconcontroller.forward();
             player.stop();
             catindex = catindex;
-            yes = true;
-            player.open(Audio(yes123.toString(),),autoStart: true,showNotification: false);
+            boolYes = true;
+            player.open(Audio(yesAudio123.toString(),),autoStart: true,showNotification: false);
             if (yess < 3) {
               yess++;
             }
@@ -189,15 +207,19 @@ bool isButtonEnabled = false;
               });
             }
             print("the value is $yess");
-            IncrementYesNO++;
+            setState(() {
+              IncrementYesNO++;
+              print("after tab on yes $IncrementYesNO");
+            });
+            
             // print("the value is $nooIncrement");
           }
           else{
             iconcontroller.forward();
             player.stop();
             catindex = catindex;
-            yes = true;
-            player.open(Audio(yes123.toString(),),autoStart: true,showNotification: false);
+            boolYes = true;
+            player.open(Audio(yesAudio123.toString(),),autoStart: true,showNotification: false);
             if (yess < 3) {
               yess++;
             }
@@ -207,28 +229,30 @@ bool isButtonEnabled = false;
               });
             }
             print(yess);
-            IncrementYesNO++;
-            // print('the value is $nooIncrement');
-          }
-          setState(() {
+           setState(() {
+              IncrementYesNO++;
+            });
+            print("after tab on yes $IncrementYesNO");}
+    
+        
           });
    }
    void noButton(){
      setState(() {
                             
-        });
+     
         yess==1?
-            noo123 = category[catindex].no1:
-            noo123==2? noo123 = category[catindex].no2 :
-            noo123 = category[catindex].no3.toString();
+            nooAudio123 = category[catindex].no1:
+            yess==2? nooAudio123 = category[catindex].no2 :
+            nooAudio123 = category[catindex].no3.toString();
 
           
           if(isAnimated){
             iconcontroller.forward();
             player.stop();
             catindex = catindex;
-            no = true;
-            player.open(Audio(noo123.toString(),),autoStart: true,showNotification: false);
+            boolNo = true;
+            player.open(Audio(nooAudio123.toString(),),autoStart: true,showNotification: false);
             if (yess < 3) {
               yess++;
             }
@@ -237,16 +261,18 @@ bool isButtonEnabled = false;
                 isButtonEnabled = false;
               });
             }
-            // isButtonEnabled = false;
-            IncrementYesNO++;
-            print('this goes to negative $IncrementYesNO');
+            isButtonEnabled = false;
+            setState(() {
+              IncrementYesNO++;
+            });
+            print('NO button yes/no increment  $IncrementYesNO');
           }
           else{
             iconcontroller.forward();
             player.stop();
             catindex = catindex;
-            no = true;
-            player.open(Audio(noo123.toString(),),autoStart: true,showNotification: false);
+            boolNo = true;
+            player.open(Audio(nooAudio123.toString(),),autoStart: true,showNotification: false);
             if (yess < 3) {
               yess++;
             }
@@ -255,15 +281,18 @@ bool isButtonEnabled = false;
                 isButtonEnabled = false;
               });
             }
-            // isButtonEnabled = false;
-            IncrementYesNO++;
-            print('this goes to negative $IncrementYesNO');
+            isButtonEnabled = false;
+            setState(() {
+              IncrementYesNO++;
+            });
+            print('yes no else $IncrementYesNO');
           }
-        setState(() {
+          // checkYesNoAvail();
+      
           
         });
    }
- 
+  
  
   @override
   void initState() {
@@ -288,25 +317,19 @@ bool isButtonEnabled = false;
     
     iconcontroller = AnimationController(vsync: this,duration: Duration(milliseconds: 200));
     player.open(Audio(category[catindex].audio.toString(),),autoStart: false,showNotification: false);
-    controller = VideoPlayerController.asset(category[catindex].video.toString())
-    ..addListener(() {setState(() {});})
-    ..setLooping(false)..initialize().then((value) => controller!.pause());
-
-    //assigningYesNo();
+    checkYesNoAvail();
+    checkVideoAvail();
+    // assigningYesNo();
     super.initState();
   }
 List<YesNoModel> yndata=[];
 
 
-  @override
-  void dispose() {
-    controller!.dispose();
-    super.dispose();
-  }
+ 
 
   @override
   Widget build(BuildContext context) {
-    
+    checkYesNoAvail();
     return SafeArea(
       child: Scaffold(
         
@@ -319,7 +342,7 @@ List<YesNoModel> yndata=[];
               //header
               header(),
               divider(),
-             startandvoice(),
+              startandvoice(),
               divider(),
               description(),
               SizedBox(
@@ -355,7 +378,7 @@ List<YesNoModel> yndata=[];
   divider(){
     return Divider(
               color: Colors.blue,
-              thickness: 1,
+              thickness: 2,
             );
               }
 
@@ -376,14 +399,14 @@ List<YesNoModel> yndata=[];
               child: Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 16),
+                    padding: EdgeInsets.only(left: 12),
                     child: GestureDetector(
                       onTap: () {
                         homebutton();
                       },
                       child: Container(
-                          height: 40,
-                          width: 10.w,
+                          height: 6.h,
+                          width: 11.w,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8),
                               border: Border.all(color: Colors.blue, width: 1)),
@@ -400,7 +423,7 @@ List<YesNoModel> yndata=[];
                        startOver();
                           },
                       child: Container(
-                          height: 40,
+                          height: 6.h,
                           width: 30.w,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8),
@@ -413,44 +436,45 @@ List<YesNoModel> yndata=[];
                           ))),
                     ),
                   ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 15, right: 10),
-                      child: Container(
-                          height: 40,
-
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8),
-                              border: Border.all(color: Colors.blue, width: 1)),
-                          child: Row(
-                            children: [
-                             InkWell(
-                            onTap: (){
-                              player.seekBy(Duration(seconds: -10));
-                            },
-                            child: Icon(Icons.fast_rewind,size: 25,)),
-                              Expanded(
-                                child: Center(
-                                    child: Text(
-                                  'CPR Pacing',
-                                  style: TextStyle(
-                                      fontSize: 20, fontWeight: FontWeight.w500),
-                                )),
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  
-                                  // AnimateIcon(); 
-                                  setState(() {
-                                    AnimateIcon();
-                                  });
-                                },
-                                child: AnimatedIcon(icon: AnimatedIcons.play_pause, progress: iconcontroller,size: 25,color: Colors.black,)
-                              ),
-                              
-                            ],
-                          )),
-                    ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 16,right: 5),
+                    child: Container(
+                        height: 6.h,
+                        width: 24.h,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(color: Colors.blue, width: 1)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                           InkWell(
+                          onTap: (){
+                            player.seekBy(Duration(seconds: -10));
+                          },
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 1.h),
+                            child: Icon(Icons.fast_rewind,size: 25,))),
+                            Center(
+                                child: Text(
+                              'CPR Pacing',
+                              style: TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.w500),
+                            )),
+                            GestureDetector(
+                              onTap: () {
+                                
+                                // AnimateIcon(); 
+                                setState(() {
+                                  AnimateIcon();
+                                });
+                              },
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 1.h),
+                                child: AnimatedIcon(icon: AnimatedIcons.play_pause, progress: iconcontroller,size: 25,color: Colors.black,))
+                            ),
+                            
+                          ],
+                        )),
                   ),
                 ],
               ),
@@ -458,28 +482,85 @@ List<YesNoModel> yndata=[];
   }
 
   description(){
-    return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-              child: Container(
-                height: MediaQuery.of(context).size.height/1.8,
-                width: MediaQuery.of(context).size.width,
-                child: Text(
-
-                  yes == false && no == false ?
-                  category[catindex].description.toString() :
-                ( yes == true && IncrementYesNO==1)? category[catindex].yes1Des.toString():
-                 ( yes == true && IncrementYesNO==2)? category[catindex].yes2Des.toString():
-                 ( yes == true && IncrementYesNO==3)? category[catindex].yes3Des.toString():
-                 ( no == true && IncrementYesNO==1)? category[catindex].no1Des.toString():
-                 ( no == true && IncrementYesNO==2)? category[catindex].no2Des.toString():
-                 ( no == true && IncrementYesNO==3)? category[catindex].no3Des.toString():
-                 
-                 category[catindex].description.toString(),                               
-                 
-                  style: TextStyle(fontSize: 25),
+    return Stack(
+      children: [
+       Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                child: Container(
+                  height: MediaQuery.of(context).size.height/1.8,
+                  width: MediaQuery.of(context).size.width,
+                  child: Text(
+    
+                    boolYes == false && boolNo == false ?
+                    category[catindex].description.toString() :
+                  ( boolYes == true && IncrementYesNO==1)? category[catindex].yes1Des.toString():
+                   ( boolYes == true && IncrementYesNO==2)? category[catindex].yes2Des.toString():
+                   ( boolYes == true && IncrementYesNO==3)? category[catindex].yes3Des.toString():
+                   ( boolNo == true && IncrementYesNO==1)? category[catindex].no1Des.toString():
+                   ( boolNo == true && IncrementYesNO==2)? category[catindex].no2Des.toString():
+                   ( boolNo == true && IncrementYesNO==3)? category[catindex].no3Des.toString():
+                   
+                   category[catindex].description.toString(),                               
+                   
+                    style: TextStyle(fontSize: 25),
+                  ),
                 ),
               ),
-            );
+      isVideo? Positioned(
+         bottom: 2.h,
+         right: 2.h,
+         child: ElevatedButton(
+             style: ButtonStyle(
+            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18.0),
+                    side: BorderSide(
+                        color: Colors.black, 
+                        width: 2.0,
+                    ),
+                ),
+            ),
+             ),
+             child: Text('Watch Video',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),),
+             onPressed: () {
+               Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => VideoPlayerWidget(data: category, index: catindex,)));
+                      print('video controller is not empty $controller');
+             },
+       ),
+       ):Container(),
+
+      //  isVideo? GestureDetector(
+      //               onTap: (){
+      //                 Navigator.push(
+      //                   context,
+      //                   MaterialPageRoute(builder: (context) => VideoPlayerWidget(data: category, index: catindex,)));
+      //                 print('video controller is not empty $controller');
+      //               },
+      //               child: Expanded(
+      //                 child: Padding(
+                        
+      //                   padding: const EdgeInsets.only( left: 10,right: 10),
+      //                   child: Container(
+      //                       height: 40,
+                  
+      //                       decoration: BoxDecoration(
+      //                           borderRadius: BorderRadius.circular(8),
+      //                           border: Border.all(color: Colors.blue, width: 1)),
+      //                       child: Center(
+      //                           child: Text(
+      //                         'Watch Video',
+      //                         style: TextStyle(
+      //                             fontSize: 20, fontWeight: FontWeight.w500),
+      //                       ))),
+      //                 ),
+      //               ),
+      //             ):Container()
+      
+      ],
+
+    );
   }
 
   bottomButtons(){
@@ -572,7 +653,7 @@ List<YesNoModel> yndata=[];
                 end: Alignment.bottomCenter,
                 colors: [
                   Colors.grey,
-                  Colors.black,
+                  Colors.grey,
                 ],
               ),
               borderRadius: BorderRadius.circular(12),
@@ -624,77 +705,6 @@ List<YesNoModel> yndata=[];
     );
   }
 
-  checkYesNoAvail(){
-    if (category[catindex].yes1Des!.isNotEmpty) {
-      yes1Dis = category[catindex].yes1Des.toString();
-      yes2Dis = category[catindex].yes2Des.toString();
-      yes3Dis = category[catindex].yes3Des.toString();
-      /*yes1Dis = yndata[0].yes;no1Dis = yndata[0].no;
-      yes2Dis = yndata[1].yes;no2Dis = yndata[1].no;
-      yes3Dis = yndata[2].yes;no3Dis = yndata[2].no;
-      */
-      print(" yes 1 $yes1Dis");
-      print(" yes 2 $yes2Dis");
-      print(" yes 3 $yes3Dis");
-      if (yes1Dis!.isNotEmpty) {
-        print("yesno is not empty");
-        setState(() {
-          isButtonEnabled = true;
-        });
-      }
-
-      else if (((yes1Dis!.isNotEmpty) || (yes2Dis!.isNotEmpty)) &&
-          (IncrementYesNO == 1)) {
-        setState(() {
-          isButtonEnabled = true;
-        });
-      }
-      else if (((yes1Dis!.isNotEmpty) || (yes2Dis!.isNotEmpty) ||
-          (yes3Dis!.isNotEmpty)) && (IncrementYesNO == 2)) {
-        setState(() {
-          isButtonEnabled = true;
-        });
-      }
-      // else if(IncrementYesNO==3 || IncrementYesNO == 2 || IncrementYesNO == 1 || IncrementYesNO == 0){
-      //    setState(() {
-      //      isButtonEnabled = false;
-      //     });
-      //  }
-      else
-        isButtonEnabled = false;
-    }
-    else{
-    setState(() {
-  isButtonEnabled = false;
-    });
-  }
-  }
-
-  assigningYesNo(){
-    setState(() {
-      //assign yes data
-      if (category[catindex].yes1Des!.isNotEmpty) {
-        yes1Dis = category[catindex].yes1Des.toString();
-        yes2Dis = category[catindex].yes2Des.toString();
-        yes3Dis = category[catindex].yes3Des.toString();
-
-        //assign no data
-        no1Dis = category[catindex].no1Des.toString();
-        no2Dis = category[catindex].no2Des.toString();
-        no3Dis = category[catindex].no3Des.toString();
-
-        //add yes no to a list
-        yndata.add(YesNoModel(yes: yes1Dis, no: no1Dis));
-        yndata.add(YesNoModel(yes: yes2Dis, no: no2Dis));
-        yndata.add(YesNoModel(yes: yes3Dis, no: no3Dis));
-      }
-      else{
-        setState(() {
-          isButtonEnabled = false;
-        });
-      }
-    });
-  }
   yesNoButton(){
     return Row(children: [
       //yes button
@@ -813,4 +823,101 @@ List<YesNoModel> yndata=[];
       ),
     ],);
   }
+
+  checkYesNoAvail(){
+    if(IncrementYesNO >2){
+      setState(() {
+              isButtonEnabled = false;
+      });
+      return;
+    }
+    if ((category[catindex].yes1Des!.isNotEmpty )   
+      ||(category[catindex].yes2Des!.isNotEmpty)
+      ||(category[catindex].yes2Des!.isNotEmpty)
+      ||(category[catindex].no1Des!.isNotEmpty )   
+      ||(category[catindex].no2Des!.isNotEmpty)
+      ||(category[catindex].no3Des!.isNotEmpty)) {
+      yes1Dis = category[catindex].yes1Des.toString();
+      print("yes1Dis   $yes1Dis");
+      yes2Dis = category[catindex].yes2Des.toString();
+      print("yes2Dis   $yes2Dis");
+      yes3Dis = category[catindex].yes3Des.toString();
+      print("yes3Dis   $yes3Dis");
+      
+      if( (yes1Dis!.isNotEmpty)&&(IncrementYesNO == 0)) {
+        print('yesIncremnt $IncrementYesNO');
+        setState(() {
+         isButtonEnabled = true;
+          
+        });}
+
+      else if ((yes2Dis!.isNotEmpty)&&(IncrementYesNO ==1)) {
+        setState(() {
+          isButtonEnabled = true;
+          // IncrementYesNO++;
+        });
+      }
+      else if ((yes3Dis!.isNotEmpty)&&(IncrementYesNO == 2)){
+        setState(() {
+          isButtonEnabled = true;
+          // IncrementYesNO++;
+        });
+      }
+      else 
+      {
+        setState(() {
+           isButtonEnabled = false;          
+        });
+      }}
+    else{
+    setState(() {
+  isButtonEnabled = false;
+    });
+  }
+  }
+  
+  checkVideoAvail(){
+    if (category[catindex].video!.isNotEmpty ) {
+      
+     
+      print(" video is ******** available ***** $yes1Dis");
+      print(" yes 2 $video");
+      setState(() {
+        controller = VideoPlayerController.asset(category[catindex].video.toString()) ; 
+        isVideo = true;   
+      });
+    }
+    else{
+    setState(() {
+      isVideo = false;
+    });
+  }
+  }
+
+  assigningYesNo(){
+    setState(() {
+      //assign yes data
+      if (category[catindex].yes1Des!.isNotEmpty) {
+        yes1Dis = category[catindex].yes1Des.toString();
+        yes2Dis = category[catindex].yes2Des.toString();
+        yes3Dis = category[catindex].yes3Des.toString();
+
+        //assign no data
+        no1Dis = category[catindex].no1Des.toString();
+        no2Dis = category[catindex].no2Des.toString();
+        no3Dis = category[catindex].no3Des.toString();
+
+        //add yes no to a list
+        yndata.add(YesNoModel(yes: yes1Dis, no: no1Dis));
+        yndata.add(YesNoModel(yes: yes2Dis, no: no2Dis));
+        yndata.add(YesNoModel(yes: yes3Dis, no: no3Dis));
+      }
+      else{
+        setState(() {
+          isButtonEnabled = false;
+        });
+      }
+    });
+  }
+
 }
