@@ -419,43 +419,45 @@ List<YesNoModel> yndata=[];
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 16,right: 5),
-                    child: Container(
-                        height: 6.h,
-                        width: 24.h,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            border: Border.all(color: Colors.blue, width: 1)),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                           InkWell(
-                          onTap: (){
-                            player.seekBy(Duration(seconds: -10));
-                          },
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 1.h),
-                            child: Icon(Icons.fast_rewind,size: 25,))),
-                            Center(
-                                child: Text(
-                              'CPR Pacing',
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.w500),
-                            )),
-                            GestureDetector(
-                              onTap: () {
-                                
-                                // AnimateIcon(); 
-                                setState(() {
-                                  AnimateIcon();
-                                });
-                              },
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 1.h),
-                                child: AnimatedIcon(icon: AnimatedIcons.play_pause, progress: iconcontroller,size: 25,color: Colors.black,))
-                            ),
-                            
-                          ],
-                        )),
+                    child: Expanded(
+                      child: Container(
+                          height: 6.h,
+                          width: 24.h,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border.all(color: Colors.blue, width: 1)),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                             InkWell(
+                            onTap: (){
+                              player.seekBy(Duration(seconds: -10));
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 2),
+                              child: Icon(Icons.fast_rewind,size: 30,))),
+                              Center(
+                                  child: Text(
+                                'CPR Pacing',
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.w500),
+                              )),
+                              GestureDetector(
+                                onTap: () {
+                                  
+                                  // AnimateIcon(); 
+                                  setState(() {
+                                    AnimateIcon();
+                                  });
+                                },
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: 2),
+                                  child: AnimatedIcon(icon: AnimatedIcons.play_pause, progress: iconcontroller,size: 30,color: Colors.black,))
+                              ),
+                              
+                            ],
+                          )),
+                    ),
                   ),
                 ],
               ),
@@ -468,7 +470,7 @@ List<YesNoModel> yndata=[];
        Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 child: Container(
-                  height: MediaQuery.of(context).size.height/1.8,
+                  height: MediaQuery.of(context).size.height * .6,
                   width: MediaQuery.of(context).size.width,
                   child: Text(
     
