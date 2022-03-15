@@ -322,6 +322,12 @@ bool isVideo = false;
     // assigningYesNo();
     super.initState();
   }
+ 
+  @override
+  void dispose() {
+    player.dispose();
+    super.dispose();
+  }
 List<YesNoModel> yndata=[];
 
 

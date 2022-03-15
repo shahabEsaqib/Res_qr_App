@@ -303,6 +303,11 @@ bool isVideo = false;
     // assigningYesNo();
     super.initState();
   }
+  @override
+  void dispose() {
+    player.dispose();
+    super.dispose();
+  }
 List<YesNoModel> yndata=[];
 
 
@@ -422,7 +427,7 @@ List<YesNoModel> yndata=[];
                     child: Expanded(
                       child: Container(
                           height: 6.h,
-                          width: 24.h,
+                          // width: 24.h,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8),
                               border: Border.all(color: Colors.blue, width: 1)),
@@ -470,7 +475,7 @@ List<YesNoModel> yndata=[];
        Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 child: Container(
-                  height: MediaQuery.of(context).size.height * .6,
+                  height: MediaQuery.of(context).size.height * .55,
                   width: MediaQuery.of(context).size.width,
                   child: Text(
     
@@ -494,11 +499,12 @@ List<YesNoModel> yndata=[];
          right: 2.h,
          child: ElevatedButton(
              style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(Colors.blue.shade100),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18.0),
                     side: BorderSide(
-                        color: Colors.black, 
+                        color: Colors.blue, 
                         width: 2.0,
                     ),
                 ),
