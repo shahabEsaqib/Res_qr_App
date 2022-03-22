@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
     });
     _pageController.jumpToPage(index);
   }
-
+  
   @override
   Widget build(BuildContext context) {
     return SafeArea(

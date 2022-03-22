@@ -1,5 +1,4 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:res_qr_flutter/Models/catogryModel.dart';
 import 'package:res_qr_flutter/Models/listdata.dart';
@@ -339,7 +338,10 @@ List<YesNoModel> yndata=[];
     return SafeArea(
       child: Scaffold(
         
-        body: SingleChildScrollView(
+        body: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -348,49 +350,7 @@ List<YesNoModel> yndata=[];
               //header
               header(),
               divider(),
-              startandvoice(),
-              divider(),
-              description(),
-              SizedBox(
-                height: 1.h,
-              ),
-              divider(),
-              bottomButtons()
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  header(){
-
-    return   Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: ListTile(
-                minLeadingWidth: 10,
-                leading: Image.asset(
-                  widget.data![index!].image.toString(),
-                  height: 100,
-                  fit: BoxFit.fill,
-                ),
-                title: Text(
-                  widget.data![index!].title.toString(),
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
-                ),
-              ),
-            );
-  }
-  divider(){
-    return Divider(
-              color: Colors.blue,
-              thickness: 2,
-            );
-              }
-
-  startandvoice(){
-
-    return  Container(
+              Container(
               height: MediaQuery.of(context).size.height * .07,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
@@ -487,13 +447,12 @@ List<YesNoModel> yndata=[];
                   ),
                 ],
               ),
-            );
-  }
-
-  description(){
-    return Stack(
-      children: [
-       Padding(
+            ),
+  
+              divider(),
+              Stack(
+                children: [
+                Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 child: Container(
                   height: MediaQuery.of(context).size.height * .6,
@@ -544,11 +503,12 @@ List<YesNoModel> yndata=[];
 
       ],
 
-    );
-  }
-
-  bottomButtons(){
-    return Padding(
+    ),
+              SizedBox(
+                height: 1.h,
+              ),
+              divider(),
+              Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
               child: Row(
                 children: [
@@ -562,8 +522,42 @@ List<YesNoModel> yndata=[];
                  yesNoButton(),
                 ],
               ),
-            );     
+            ),
+            ],
+          ),
+        ),
+    
+        ),
+
+      ),
+    );
   }
+
+  header(){
+
+    return   Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: ListTile(
+                minLeadingWidth: 10,
+                leading: Image.asset(
+                  widget.data![index!].image.toString(),
+                  height: 100,
+                  fit: BoxFit.fill,
+                ),
+                title: Text(
+                  widget.data![index!].title.toString(),
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
+                ),
+              ),
+            );
+  }
+  divider(){
+    return Divider(
+              color: Colors.blue,
+              thickness: 2,
+            );
+              }
+
 
   backandNextBotton(){
     return Row(

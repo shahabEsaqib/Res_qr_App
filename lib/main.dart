@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:res_qr_flutter/bottomNav/homeScreen.dart';
 import 'package:res_qr_flutter/splash/splashScreen.dart';
 import 'package:sizer/sizer.dart';
 
