@@ -1,5 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.res_qr_flutter.res_qr_flutter">
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="res_qr_flutter"
         android:name="${applicationName}"

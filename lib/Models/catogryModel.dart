@@ -14,7 +14,8 @@ class CatogryModel{
   String? no3 = '';
   String? yes3Des = '';
   String? no3Des = '';
+  String? cprPacing = '';
 
 
-  CatogryModel({this.audio,this.description,this.video,this.yes1,this.no1,this.yes1Des,this.no1Des,this.yes2,this.no2,this.yes2Des,this.no2Des,this.yes3,this.yes3Des,this.no3,this.no3Des});
+  CatogryModel({this.audio,this.description,this.video,this.yes1,this.no1,this.yes1Des,this.no1Des,this.yes2,this.no2,this.yes2Des,this.no2Des,this.yes3,this.yes3Des,this.no3,this.no3Des,this.cprPacing});
 }

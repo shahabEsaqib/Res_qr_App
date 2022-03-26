@@ -2,7 +2,8 @@ class DataModel{
   int? id;
   String? title;
   String? image;
-  String? audio;
+  String? video;
+  String? cprPacing;
 
-  DataModel({this.id, this.title, this.image,this.audio});
+  DataModel({this.id, this.title, this.image,this.video,this.cprPacing});
 }
