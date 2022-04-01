@@ -4,29 +4,9 @@ import 'package:res_qr_flutter/Models/dataModel.dart';
 class Listdata{
 
 List<DataModel> data = [
- DataModel(
-title: 'Multiple Injuries',
-image: 'assets/images/multipleinjurybutton.png',
-cprPacing: 'assets/sounds/cpr.mp3'
- ),
   DataModel(
-title: 'Head, Neck & Spine',
-image: 'assets/images/headneckbutton.png',
-cprPacing: 'assets/sounds/cpr.mp3'
- ),
-  DataModel(
-title: 'CPR & Unconscious',
-image: 'assets/images/cprunconsciousbutton.png',
-cprPacing: 'assets/sounds/cpr.mp3'
- ),
-  DataModel(
-title: 'Breating, Choking & Drowning',
+title: 'Breathing, Choking & Drowning',
 image: 'assets/images/breathingchokingbutton.png',
-cprPacing: 'assets/sounds/cpr.mp3'
- ),
-  DataModel(
-title: 'Heart, Stroke & Chest Pain',
-image: 'assets/images/heartchestbutton.png',
 cprPacing: 'assets/sounds/cpr.mp3'
  ),
   DataModel(
@@ -40,8 +20,8 @@ image: 'assets/images/burnelectricbutton.png',
 cprPacing: 'assets/sounds/cpr.mp3'
  ),
   DataModel(
-title: 'fracture & Sprain',
-image: 'assets/images/fracturesprainbutton.png',
+title: 'CPR & Unconscious',
+image: 'assets/images/cprunconsciousbutton.png',
 cprPacing: 'assets/sounds/cpr.mp3'
  ),
   DataModel(
@@ -49,27 +29,92 @@ title: 'Eye',
 image: 'assets/images/eyebutton.png',
 cprPacing: 'assets/sounds/cpr.mp3'
  ),
+ DataModel(
+title: 'Environmental(Heat & Cold)',
+image: 'assets/images/heatcoldbutton.png',
+cprPacing: 'assets/sounds/cpr.mp3'
+ ),
+  DataModel(
+title: 'Fracture & Spraine',
+image: 'assets/images/fracturesprainbutton.png',
+cprPacing: 'assets/sounds/cpr.mp3'
+ ), 
+ DataModel(
+title: 'Head, Neck & Spine',
+image: 'assets/images/headneckbutton.png',
+cprPacing: 'assets/sounds/cpr.mp3'
+ ),
+  DataModel(
+title: 'Heart, Stroke & Chest Pain',
+image: 'assets/images/heartchestbutton.png',
+cprPacing: 'assets/sounds/cpr.mp3'
+ ),
+   
+  DataModel(
+title: 'Multiple Injuries',
+image: 'assets/images/multipleinjurybutton.png',
+cprPacing: 'assets/sounds/cpr.mp3'
+ ),
+  
   DataModel(
 title: 'Seizure & Diabetic',
 image: 'assets/images/seizurediabeticbutton.png',
 cprPacing: 'assets/sounds/cpr.mp3'
  ),
-  DataModel(
-title: 'Heat & Cold Overexertion',
-image: 'assets/images/heatcoldbutton.png',
-cprPacing: 'assets/sounds/cpr.mp3'
- ),
+ 
   DataModel(
 title: 'Other',
 image: 'assets/images/otherbutton.png',
 cprPacing: 'assets/sounds/cpr.mp3'
  ),
+ 
  ];
 
 
 getdata(){
   return data;
 }
+List<CatogryModel> brething =[
+  
+  CatogryModel(
+    audio: 'assets/sounds/BC8.2.mp3',
+    description: 'Is this a poison or suspected drug overdose emergency?',
+
+    yes1: 'assets/sounds/BC8.2.mp3',
+    yes1Des: 'Has the person collapsed?',
+    no1: 'assets/sounds/BC2.1.6.mp3',
+    no1Des: 'Place victim in the recovery position, lying on his side.\n(Press VIEW to see short video on how to roll victim to the recovery position.)\n(Press NEXT to continue.)',
+    
+    no2: 'assets/sounds/BC8.2.mp3',
+    yes2: 'assets/sounds/BC2.1.6.mp3',
+    yes2Des: 'Place victim in the recovery position, lying on his side.\n(Press VIEW to see short video on how to roll victim to the recovery position.)\n(Press NEXT to continue.)',
+    no2Des : '',
+    
+    video: 'assets/videos/1-a.mp4',
+    
+    yes3 : '',
+    no3 : '',
+    yes3Des : '',
+    no3Des : '',
+  ),
+  CatogryModel(
+    audio: 'assets/sounds/BC2.1.7.mp3',
+    description: 'Press the arrow keys to repeat any instructions or press the Start Over button to begin these instructions again.\n(END)',
+    video : '',
+    yes1 : '',
+    no1 : '',
+    yes1Des: '',
+    no1Des : '',
+    yes2 : '',
+    no2 : '',
+    yes2Des : '',
+    no2Des : '',
+    yes3 : '',
+    no3 : '',
+    yes3Des : '',
+    no3Des : '',
+  ),
+];
 
 List<CatogryModel> multipleinjuries =[
   CatogryModel(
@@ -361,47 +406,6 @@ List<CatogryModel> cpr =[
     video:'',
   )
   
-];
-List<CatogryModel> brething =[
-  
-  CatogryModel(
-    audio: 'assets/sounds/BC8.2.mp3',
-    description: 'Is this a poison or suspected drug overdose emergency?',
-
-    yes1: 'assets/sounds/BC8.2.mp3',
-    yes1Des: 'Has the person collapsed?',
-    no1: 'assets/sounds/BC2.1.6.mp3',
-    no1Des: 'Place victim in the recovery position, lying on his side.\n(Press VIEW to see short video on how to roll victim to the recovery position.)\n(Press NEXT to continue.)',
-    
-    no2: 'assets/sounds/BC8.2.mp3',
-    yes2: 'assets/sounds/BC2.1.6.mp3',
-    yes2Des: 'Place victim in the recovery position, lying on his side.\n(Press VIEW to see short video on how to roll victim to the recovery position.)\n(Press NEXT to continue.)',
-    no2Des : '',
-    
-    video: 'assets/videos/1-a.mp4',
-    
-    yes3 : '',
-    no3 : '',
-    yes3Des : '',
-    no3Des : '',
-  ),
-  CatogryModel(
-    audio: 'assets/sounds/BC2.1.7.mp3',
-    description: 'Press the arrow keys to repeat any instructions or press the Start Over button to begin these instructions again.\n(END)',
-    video : '',
-    yes1 : '',
-    no1 : '',
-    yes1Des: '',
-    no1Des : '',
-    yes2 : '',
-    no2 : '',
-    yes2Des : '',
-    no2Des : '',
-    yes3 : '',
-    no3 : '',
-    yes3Des : '',
-    no3Des : '',
-  ),
 ];
 List<CatogryModel> Heart =[
   CatogryModel(

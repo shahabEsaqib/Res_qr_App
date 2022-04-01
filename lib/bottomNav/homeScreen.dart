@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:res_qr_flutter/bottomNav/cpr.dart';
-import 'package:res_qr_flutter/bottomNav/info.dart';
+import 'package:res_qr_flutter/info/info.dart';
 import 'package:res_qr_flutter/bottomNav/informationScreen.dart';
 
 import '../Models/listdata.dart';
