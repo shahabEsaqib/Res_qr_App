@@ -15,63 +15,31 @@ class _FeedbackSenderState extends State<FeedbackSender> {
   List<String> attachments = [];
   bool isHTML = false;
 
-  final _recipientController = TextEditingController(
-    text: 'shahab.sk708@gmail.com',
-  );
+  final _recipientController = TextEditingController();
 
-  final _subjectController = TextEditingController(text: 'The subject');
+  final _subjectController = TextEditingController();
 
-  final _bodyController = TextEditingController(
-    text: 'Mail body.',
-  );
+  final _bodyController = TextEditingController();
 
-  final _firstNameController = TextEditingController(
-    text: 'Mail body.',
-  );
+  final _firstNameController = TextEditingController();
 
-  final _lastNameController = TextEditingController(
-    text: 'Mail body.',
-  );
+  final _lastNameController = TextEditingController();
 
-  final _phoneNoController = TextEditingController(
-    text: 'Mail body.',
-  );
-  Future<void> send() async {
-    final Email email = Email(
-      body: _bodyController.text.trim(),
-      subject: _subjectController.text.trim(),
-      recipients: [_recipientController.text.trim()],
-      isHTML: false
-    );
-
-    String platformResponse;
-
-    try {
-      await FlutterEmailSender.send(email);
-      platformResponse = 'success';
-    } catch (error) {
-      print(error);
-      platformResponse = error.toString();
-    }
-
-    if (!mounted) return;
-
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(platformResponse),
-      ),
-    );
-  }
+  final _phoneNoController = TextEditingController();
+  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Plugin example app'),
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
+        elevation: 0,
+        title: Text('Feedback'),
         actions: <Widget>[
           IconButton(
             onPressed: () {
-             sendEmail(name: "shahab", email: _recipientController.text.trim(), subject: _subjectController.text.trim(), message: _bodyController.text.trim());
+             sendEmail(name: _firstNameController.text.trim()+ " " + _lastNameController.text.trim(), email: _recipientController.text.trim(), subject: _subjectController.text.trim(), message: _bodyController.text.trim(), phone_no: _phoneNoController.text.trim());
             },
             icon: Icon(Icons.send),
           )
@@ -87,10 +55,41 @@ class _FeedbackSenderState extends State<FeedbackSender> {
             Padding(
               padding: EdgeInsets.all(8.0),
               child: TextField(
+                controller: _firstNameController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'First Name',
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: TextField(
+                controller: _lastNameController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Last Name',
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: TextField(
+                controller: _phoneNoController,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Phone no',
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: TextField(
                 controller: _recipientController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'Recipient',
+                  labelText: 'Your Email',
                 ),
               ),
             ),
@@ -178,6 +177,7 @@ Future sendEmail({
   required String email,
   required String subject,
   required String message,
+  required String phone_no
 }) async {
 
 final serviceId = 'service_sk2iqh9';

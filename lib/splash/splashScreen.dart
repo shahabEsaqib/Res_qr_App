@@ -16,11 +16,11 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
 
-<<<<<<< HEAD:lib/splash/splashScreen.dart
+
       Timer(Duration(seconds: 3), ()=>Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomeScreen())));
-=======
+
       Timer(Duration(seconds: 4), ()=>Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomeScreen())));
->>>>>>> 0832f631ce459b45c4d2b998ee64b60c6099733b:lib/splashScreen.dart
+
    
   }
   @override

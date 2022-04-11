@@ -2,6 +2,12 @@
     package="com.example.res_qr_flutter.res_qr_flutter">
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <queries>
+    <intent>
+    <action android:name="android.intent.action.SENDTO" />
+    <data android:scheme="mailto" />
+    </intent>
+    </queries>
    <application
         android:label="res_qr_flutter"
         android:name="${applicationName}"
