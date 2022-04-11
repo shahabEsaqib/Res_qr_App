@@ -198,7 +198,7 @@ final userId = 'u0tSjzn86rjWlogpH';
     'template_params': {
       'from_name': name,
       'from_email': email,
-      'to_email': "shahab.sk708@gmail.com",
+      'to_email': "support@think-safe.com",
       'user_subject': subject,
       'message': message,
       'phone_no': phone_no,
