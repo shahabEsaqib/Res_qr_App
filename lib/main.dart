@@ -1,9 +1,4 @@
-
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-=======
-import 'package:res_qr_flutter/bottomNav/homeScreen.dart';
->>>>>>> 0832f631ce459b45c4d2b998ee64b60c6099733b
 import 'package:res_qr_flutter/splash/splashScreen.dart';
 import 'package:sizer/sizer.dart';
 

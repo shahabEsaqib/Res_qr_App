@@ -27,7 +27,8 @@ class _InformationScreenState extends State<InformationScreen> {
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage(
-                'assets/images/ResQr_logo.png',
+                'assets/images/ResQr_logoo.png',
+                // 'assets/images/ResLogo.png'
               ),
               fit: BoxFit.fill,
               scale: 2,

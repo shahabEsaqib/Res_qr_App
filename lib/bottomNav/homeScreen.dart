@@ -1,11 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:res_qr_flutter/bottomNav/cpr.dart';
-<<<<<<< HEAD:lib/bottomNav/homeScreen.dart
 import 'package:res_qr_flutter/info/info.dart';
-=======
-import 'package:res_qr_flutter/bottomNav/info.dart';
->>>>>>> 0832f631ce459b45c4d2b998ee64b60c6099733b:lib/homeScreen.dart
 import 'package:res_qr_flutter/bottomNav/informationScreen.dart';
 
 import '../Models/listdata.dart';

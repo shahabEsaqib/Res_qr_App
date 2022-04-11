@@ -38,14 +38,11 @@ dependencies:
   assets_audio_player: ^3.0.4+1
   sizer: ^2.0.15
   video_player: ^2.3.0
-<<<<<<< HEAD
   flutter_email_sender: ^5.1.0
   image_picker: ^0.8.4+11
   path_provider: ^2.0.9
   http: ^0.13.4
-=======
   
->>>>>>> 0832f631ce459b45c4d2b998ee64b60c6099733b
 
 dev_dependencies:
   flutter_test:

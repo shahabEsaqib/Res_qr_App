@@ -25,6 +25,17 @@ class _FeedbackSenderState extends State<FeedbackSender> {
     text: 'Mail body.',
   );
 
+  final _firstNameController = TextEditingController(
+    text: 'Mail body.',
+  );
+
+  final _lastNameController = TextEditingController(
+    text: 'Mail body.',
+  );
+
+  final _phoneNoController = TextEditingController(
+    text: 'Mail body.',
+  );
   Future<void> send() async {
     final Email email = Email(
       body: _bodyController.text.trim(),
@@ -185,11 +196,12 @@ final userId = 'u0tSjzn86rjWlogpH';
     'template_id': templateId,
     'user_id': userId,
     'template_params': {
-      'user_name': name,
-      'user_email': email,
-      'to_email': 'sk6011525@gmail.com',
+      'from_name': name,
+      'from_email': email,
+      'to_email': "shahab.sk708@gmail.com",
       'user_subject': subject,
-      'user_message': message,
+      'message': message,
+      'phone_no': phone_no,
     }
   })
   );

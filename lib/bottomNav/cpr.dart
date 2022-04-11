@@ -33,10 +33,7 @@ class _CprScreenState extends State<CprScreen> with TickerProviderStateMixin{
   int catindex=0;
 
   AssetsAudioPlayer player = AssetsAudioPlayer();
-<<<<<<< HEAD
   AssetsAudioPlayer player2 = AssetsAudioPlayer();
-=======
->>>>>>> 0832f631ce459b45c4d2b998ee64b60c6099733b
   List<CatogryModel> category=[];
   List<List<CatogryModel>> listofcategory=[];
   
@@ -283,16 +280,13 @@ bool isVideo = false;
   void initState() {
     //assign categories(model) to a list
     listofcategory=[
-<<<<<<< HEAD
        Listdata().brething,
        Listdata().bleeding,
        Listdata().burn,
        Listdata().cpr,
        Listdata().eye,
-       Listdata().Heart,  
        Listdata().fracture,
        Listdata().headNeck,
-       
        Listdata().heat,
        Listdata().multipleinjuries,
        Listdata().seizure,
@@ -305,27 +299,6 @@ bool isVideo = false;
     iconcontroller = AnimationController(vsync: this,duration: Duration(milliseconds: 200));
     player.open(Audio(category[catindex].audio.toString(),),autoStart: false,showNotification: false);
     player2.open(Audio("assets/sounds/SE7.0.mp3"),autoStart: false,showNotification: false);
-=======
-       Listdata().multipleinjuries,
-       Listdata().headNeck,
-       Listdata().cpr,
-       Listdata().brething,
-       Listdata().Heart,  
-       Listdata().bleeding,
-       Listdata().burn,
-       Listdata().fracture,
-       Listdata().eye,
-       Listdata().seizure,
-       Listdata().heat,
-       Listdata().other
-      ];
-    
-    category  = listofcategory[2];      
-    index = 2;
-    
-    iconcontroller = AnimationController(vsync: this,duration: Duration(milliseconds: 200));
-    player.open(Audio(category[catindex].audio.toString(),),autoStart: false,showNotification: false);
->>>>>>> 0832f631ce459b45c4d2b998ee64b60c6099733b
     checkYesNoAvail();
     checkVideoAvail();
     // assigningYesNo();
@@ -334,10 +307,7 @@ bool isVideo = false;
   @override
   void dispose() {
     player.dispose();
-<<<<<<< HEAD
     player2.dispose();
-=======
->>>>>>> 0832f631ce459b45c4d2b998ee64b60c6099733b
     super.dispose();
   }
 List<YesNoModel> yndata=[];
@@ -345,7 +315,6 @@ List<YesNoModel> yndata=[];
 
  
 
-<<<<<<< HEAD
  
   @override
   Widget build(BuildContext context) {
@@ -702,391 +671,6 @@ List<YesNoModel> yndata=[];
           
                           //yes and no buttons
 
-=======
-  @override
-  Widget build(BuildContext context) {
-    
-    return SafeArea(
-      child: Scaffold(
-        
-        body: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-
-              //header
-              header(),
-              divider(),
-              startandvoice(),
-              divider(),
-              description(),
-              SizedBox(
-                height: 1.h,
-              ),
-              divider(),
-              bottomButtons()
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  header(){
-
-    return   Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: ListTile(
-                minLeadingWidth: 10,
-                leading: Image.asset(
-                  widget.data![index!].image.toString(),
-                  height: 100,
-                  fit: BoxFit.fill,
-                ),
-                title: Text(
-                  widget.data![index!].title.toString(),
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
-                ),
-              ),
-            );
-  }
-  divider(){
-    return Divider(
-              color: Colors.blue,
-              thickness: 2,
-            );
-              }
-
-  startandvoice(){
-
-    return  Container(
-              height: MediaQuery.of(context).size.height * .07,
-              width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  Colors.white,
-                  Colors.blue.shade50,
-                ],
-              )),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: 12),
-                    child: GestureDetector(
-                      onTap: () {
-                        homebutton();
-                      },
-                      child: Container(
-                          height: 6.h,
-                          width: 11.w,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8),
-                              border: Border.all(color: Colors.blue, width: 1)),
-                          child: Icon(
-                            Icons.home,
-                            size: 35,
-                          )),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 16),
-                    child: GestureDetector(
-                      onTap: () {
-                       startOver();
-                          },
-                      child: Container(
-                          height: 6.h,
-                          width: 30.w,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8),
-                              border: Border.all(color: Colors.blue, width: 1)),
-                          child: Center(
-                              child: Text(
-                            'Start Over',
-                            style: TextStyle(
-                                fontSize: 22, fontWeight: FontWeight.w600),
-                          ))),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 16,right: 5),
-                    child: Expanded(
-                      child: Container(
-                          height: 6.h,
-                          // width: 24.h,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8),
-                              border: Border.all(color: Colors.blue, width: 1)),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                             InkWell(
-                            onTap: (){
-                              player.seekBy(Duration(seconds: -10));
-                            },
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 2),
-                              child: Icon(Icons.fast_rewind,size: 30,))),
-                              Center(
-                                  child: Text(
-                                'CPR Pacing',
-                                style: TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.w500),
-                              )),
-                              GestureDetector(
-                                onTap: () {
-                                  
-                                  // AnimateIcon(); 
-                                  setState(() {
-                                    AnimateIcon();
-                                  });
-                                },
-                                child: Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 2),
-                                  child: AnimatedIcon(icon: AnimatedIcons.play_pause, progress: iconcontroller,size: 30,color: Colors.black,))
-                              ),
-                              
-                            ],
-                          )),
-                    ),
-                  ),
-                ],
-              ),
-            );
-  }
-
-  description(){
-    return Stack(
-      children: [
-       Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                child: Container(
-                  height: MediaQuery.of(context).size.height * .55,
-                  width: MediaQuery.of(context).size.width,
-                  child: Text(
-    
-                    boolYes == false && boolNo == false ?
-                    category[catindex].description.toString() :
-                  ( boolYes == true && IncrementYesNO==1)? category[catindex].yes1Des.toString():
-                   ( boolYes == true && IncrementYesNO==2)? category[catindex].yes2Des.toString():
-                   ( boolYes == true && IncrementYesNO==3)? category[catindex].yes3Des.toString():
-                   ( boolNo == true && IncrementYesNO==1)? category[catindex].no1Des.toString():
-                   ( boolNo == true && IncrementYesNO==2)? category[catindex].no2Des.toString():
-                   ( boolNo == true && IncrementYesNO==3)? category[catindex].no3Des.toString():
-                   
-                   category[catindex].description.toString(),                               
-                   
-                    style: TextStyle(fontSize: 25),
-                  ),
-                ),
-              ),
-      isVideo? Positioned(
-         bottom: 2.h,
-         right: 2.h,
-         child: ElevatedButton(
-             style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(Colors.blue.shade100),
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18.0),
-                    side: BorderSide(
-                        color: Colors.blue, 
-                        width: 2.0,
-                    ),
-                ),
-            ),
-             ),
-             child: Text('Watch Video',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),),
-             onPressed: () {
-               Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => VideoPlayerWidget(data: category, index: catindex,)));
-                      print('video controller is not empty $controller');
-             },
-       ),
-       ):Container(),
-
-      //  isVideo? GestureDetector(
-      //               onTap: (){
-      //                 Navigator.push(
-      //                   context,
-      //                   MaterialPageRoute(builder: (context) => VideoPlayerWidget(data: category, index: catindex,)));
-      //                 print('video controller is not empty $controller');
-      //               },
-      //               child: Expanded(
-      //                 child: Padding(
-                        
-      //                   padding: const EdgeInsets.only( left: 10,right: 10),
-      //                   child: Container(
-      //                       height: 40,
-                  
-      //                       decoration: BoxDecoration(
-      //                           borderRadius: BorderRadius.circular(8),
-      //                           border: Border.all(color: Colors.blue, width: 1)),
-      //                       child: Center(
-      //                           child: Text(
-      //                         'Watch Video',
-      //                         style: TextStyle(
-      //                             fontSize: 20, fontWeight: FontWeight.w500),
-      //                       ))),
-      //                 ),
-      //               ),
-      //             ):Container()
-      
-      ],
-
-    );
-  }
-
-  bottomButtons(){
-    return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              child: Row(
-                children: [
-                  //back and next buttons
-                  backandNextBotton(),
-                  SizedBox(
-                    width: 12,
-                  ),
-
-                 //yes and no buttons
-                 yesNoButton(),
-                ],
-              ),
-            );     
-  }
-
-  backandNextBotton(){
-    return Row(
-      children: [
-        //back button
-        catindex == 0
-            ? Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  Colors.grey,
-                  Colors.grey,
-                ],
-              ),
-              borderRadius: BorderRadius.circular(12),
-              border:
-              Border.all(color: Colors.black, width: 1)),
-          height: MediaQuery.of(context).size.height * .07,
-          width: MediaQuery.of(context).size.width * .2,
-          child: Center(
-              child: Text(
-                '<Back',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 23,
-                ),
-              )),
-        )
-            : InkWell(
-          onTap: () {
-            backButton();
-            // print(indexx);
-          },
-
-          child: Container(
-            decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    Colors.grey,
-                    Colors.black,
-                  ],
-                ),
-                borderRadius: BorderRadius.circular(12),
-                border:
-                Border.all(color: Colors.black, width: 1)),
-            height: MediaQuery.of(context).size.height * .07,
-            width: MediaQuery.of(context).size.width * .2,
-            child: Center(
-                child: Text(
-                  '<Back',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 23,
-                  ),
-                )),
-          ),
-        ),
-        SizedBox(
-          width: 16,
-        ),
-        //next button
-        catindex == category.length -1
-            ?  Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  Colors.grey,
-                  Colors.grey,
-                ],
-              ),
-              borderRadius: BorderRadius.circular(12),
-              border:
-              Border.all(color: Colors.black, width: 1)),
-          height: MediaQuery.of(context).size.height * .07,
-          width: MediaQuery.of(context).size.width * .2,
-          child: Center(
-              child: Text(
-                'End',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 23,
-                ),
-              )),
-        )
-            : InkWell(
-          onTap: () {
-            nextButton();
-            // print(indexx);
-          },
-
-          child: Container(
-            decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    Colors.grey,
-                    Colors.black,
-                  ],
-                ),
-                borderRadius: BorderRadius.circular(12),
-                border:
-                Border.all(color: Colors.black, width: 1)),
-            height: MediaQuery.of(context).size.height * .07,
-            width: MediaQuery.of(context).size.width * .2,
-            child: Center(
-                child: Text(
-                  'Next>',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 23,
-                  ),
-                )),
-          ),
-        ),
-      ],
-    );
-  }
-
-  yesNoButton(){
-    return Row(children: [
->>>>>>> 0832f631ce459b45c4d2b998ee64b60c6099733b
       //yes button
       isButtonEnabled?
       GestureDetector(
@@ -1198,7 +782,6 @@ List<YesNoModel> yndata=[];
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
-<<<<<<< HEAD
                   
                  fontWeight: FontWeight.bold),
                   )),
@@ -1262,62 +845,6 @@ List<YesNoModel> yndata=[];
            isButtonEnabled = false;          
         });
       }}
-=======
-                  fontWeight: FontWeight.bold),
-            )),
-      ),
-    ],);
-  }
-
-  checkYesNoAvail(){
-    if ((category[catindex].yes1Des!.isNotEmpty ) ||(category[catindex].yes2Des!.isNotEmpty)||(category[catindex].yes2Des!.isNotEmpty)) {
-      yes1Dis = category[catindex].yes1Des.toString();
-      yes2Dis = category[catindex].yes2Des.toString();
-      yes3Dis = category[catindex].yes3Des.toString();
-      /*yes1Dis = yndata[0].yes;no1Dis = yndata[0].no;
-      yes2Dis = yndata[1].yes;no2Dis = yndata[1].no;
-      yes3Dis = yndata[2].yes;no3Dis = yndata[2].no;
-      */
-      print(" yes 1 discription is ******** hello ***** $yes1Dis");
-      print(" yes 2 $yes2Dis");
-      print(" yes 3 $yes3Dis");
-      if( (yes1Dis!.isNotEmpty)) {
-
-        print("yesno 1 is not empty");
-        print("yesno 1 is not empty and icrement no is $IncrementYesNO");
-        setState(() {
-          if(IncrementYesNO == 0){
-            isButtonEnabled = true;
-          }else{
-            isButtonEnabled = false;
-          };
-          
-        });
-      }
-
-      else if ((yes2Dis!.isNotEmpty)&&(yes1Dis!.isNotEmpty)&&(IncrementYesNO == 0)) {
-        print("yesno 2 is not empty");
-        print("yesno 2 is not empty and icrement no is $IncrementYesNO");
-        setState(() {
-          isButtonEnabled = true;
-        });
-      }
-      else if ((yes2Dis!.isNotEmpty)&&(yes1Dis!.isNotEmpty)&&(yes3Dis!.isNotEmpty)&&(IncrementYesNO == 1)){
-        print("yesno 3 is not empty");
-        print("yesno 3 is not empty and icrement no is $IncrementYesNO");
-        setState(() {
-          isButtonEnabled = true;
-        });
-      }
-      // else if(IncrementYesNO==3 || IncrementYesNO == 2 || IncrementYesNO == 1 || IncrementYesNO == 0){
-      //    setState(() {
-      //      isButtonEnabled = false;
-      //     });
-      //  }
-      else
-        isButtonEnabled = false;
-    }
->>>>>>> 0832f631ce459b45c4d2b998ee64b60c6099733b
     else{
     setState(() {
   isButtonEnabled = false;
@@ -1369,8 +896,5 @@ List<YesNoModel> yndata=[];
     });
   }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 0832f631ce459b45c4d2b998ee64b60c6099733b
 }

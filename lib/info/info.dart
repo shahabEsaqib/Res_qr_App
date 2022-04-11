@@ -78,7 +78,7 @@ class InfoScreen extends StatelessWidget {
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   // color: Colors.amber,
-                  image: DecorationImage(image: AssetImage('assets/images/ResQr_logo.png'))
+                  image: DecorationImage(image: AssetImage('assets/images/ResQr_logoo.png'))
                 ),
               ),
               Card(
